@@ -1,0 +1,56 @@
+/* ihumbak - Woo Out of Stock Notify – prosty, neutralny layout */
+
+.iwon-notify {
+	margin: 1.5em 0;
+}
+
+.iwon-notify__intro {
+	margin: 0 0 0.75em;
+}
+
+.iwon-notify__form {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5em;
+	align-items: center;
+}
+
+.iwon-notify__input {
+	flex: 1 1 220px;
+	min-width: 0;
+	padding: 0.6em 0.75em;
+	line-height: 1.4;
+	box-sizing: border-box;
+}
+
+.iwon-notify__submit {
+	flex: 0 0 auto;
+	cursor: pointer;
+}
+
+.iwon-notify__submit:disabled {
+	opacity: 0.6;
+	cursor: default;
+}
+
+.iwon-notify__message {
+	flex: 1 1 100%;
+	margin: 0.5em 0 0;
+	font-size: 0.95em;
+}
+
+.iwon-notify__message:empty {
+	display: none;
+}
+
+.iwon-notify__message--error {
+	color: #b32d2e;
+}
+
+.iwon-notify__message--success {
+	color: #1a7f37;
+}
+
+.iwon-notify__message--loading {
+	opacity: 0.8;
+}
