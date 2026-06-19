@@ -54,7 +54,14 @@ final class IWON_Plugin {
 	 * Konstruktor.
 	 */
 	private function __construct() {
-		// Wtyczka wymaga WooCommerce.
+		add_action( 'init', array( $this, 'load_textdomain' ) );
+
+		// Aktualizacje z GitHub – działają niezależnie od WooCommerce.
+		if ( defined( 'IWON_GITHUB_REPO' ) && IWON_GITHUB_REPO ) {
+			new IWON_Updater( IWON_PLUGIN_FILE, IWON_GITHUB_REPO );
+		}
+
+		// Pozostała funkcjonalność wymaga WooCommerce.
 		if ( ! $this->is_woocommerce_active() ) {
 			add_action( 'admin_notices', array( $this, 'render_missing_woocommerce_notice' ) );
 			return;
@@ -63,8 +70,6 @@ final class IWON_Plugin {
 		new IWON_Settings();
 		new IWON_Frontend();
 		new IWON_Ajax();
-
-		add_action( 'init', array( $this, 'load_textdomain' ) );
 	}
 
 	/**
