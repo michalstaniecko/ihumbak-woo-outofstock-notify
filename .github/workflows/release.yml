@@ -1,0 +1,49 @@
+name: Release
+
+# Buduje paczkę ZIP wtyczki i publikuje ją jako asset w GitHub Release.
+# Uruchamiane po wypchnięciu tagu w formacie vX.Y.Z (np. v1.0.0).
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+env:
+  PLUGIN_SLUG: ihumbak-woo-outofstock-notify
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve version from tag
+        id: version
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Verify plugin header version matches tag
+        run: |
+          HEADER_VERSION=$(grep -i "^ \* Version:" "${PLUGIN_SLUG}/${PLUGIN_SLUG}.php" | head -n1 | sed -E 's/.*Version:[[:space:]]*//' | tr -d '\r')
+          echo "Tag version:    ${{ steps.version.outputs.version }}"
+          echo "Header version: ${HEADER_VERSION}"
+          if [ "${HEADER_VERSION}" != "${{ steps.version.outputs.version }}" ]; then
+            echo "::error::Wersja w nagłówku wtyczki (${HEADER_VERSION}) nie zgadza się z tagiem (${{ steps.version.outputs.version }})."
+            exit 1
+          fi
+
+      - name: Build plugin ZIP
+        run: |
+          zip -r "${PLUGIN_SLUG}.zip" "${PLUGIN_SLUG}" \
+            -x "*/.git/*" "*/.github/*" "*/.DS_Store"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          generate_release_notes: true
+          files: ${{ env.PLUGIN_SLUG }}.zip
