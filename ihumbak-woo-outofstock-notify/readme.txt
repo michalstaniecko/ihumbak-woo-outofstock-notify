@@ -4,7 +4,7 @@ Tags: woocommerce, out of stock, notify, email, stock notification
 Requires at least: 5.8
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,9 @@ Po wysłaniu formularza administrator sklepu otrzymuje wiadomość e-mail z info
 3. Przejdź do **WooCommerce → Powiadomienia o dostępności** i ustaw adres e-mail oraz tekst formularza.
 
 == Changelog ==
+
+= 1.0.1 =
+* Aktualizacja akcji workflow Release do Node 24 (checkout v7, action-gh-release v3).
 
 = 1.0.0 =
 * Pierwsza wersja.
