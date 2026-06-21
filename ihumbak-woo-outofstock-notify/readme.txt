@@ -4,7 +4,7 @@ Tags: woocommerce, out of stock, notify, email, stock notification
 Requires at least: 5.8
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,9 @@ Po wysłaniu formularza administrator sklepu otrzymuje wiadomość e-mail z info
 3. Przejdź do **WooCommerce → Powiadomienia o dostępności** i ustaw adres e-mail oraz tekst formularza.
 
 == Changelog ==
+
+= 1.2.5 =
+* Po udanej wysyłce formularza ukrywany jest również widget hCaptcha – zostaje tylko komunikat potwierdzający.
 
 = 1.2.4 =
 * Naprawiono podwójny komunikat po wysłaniu formularza oraz fałszywy komunikat sukcesu pojawiający się mimo nieprzejścia hCaptcha. Wyłączono własny tryb AJAX hCaptcha for WP – wysyłkę i weryfikację obsługuje wyłącznie wtyczka.

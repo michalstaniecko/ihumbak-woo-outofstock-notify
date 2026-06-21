@@ -41,6 +41,7 @@
 		var input = container.querySelector('.iwon-notify__input');
 		var button = container.querySelector('.iwon-notify__submit');
 		var message = container.querySelector('.iwon-notify__message');
+		var captcha = container.querySelector('.iwon-notify__captcha');
 		var productId = container.getAttribute('data-iwon-product');
 
 		if (!form || !input || !button || !message) {
@@ -95,6 +96,9 @@
 						// Po sukcesie ukrywamy pola formularza, zostawiając komunikat.
 						input.style.display = 'none';
 						button.style.display = 'none';
+						if (captcha) {
+							captcha.style.display = 'none';
+						}
 					} else {
 						setMessage(message, payload.message || data.i18n.errorGeneric, 'error');
 						button.disabled = false;
