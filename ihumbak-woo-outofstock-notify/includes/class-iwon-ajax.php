@@ -28,6 +28,11 @@ class IWON_Ajax {
 	 * Obsługuje żądanie AJAX.
 	 */
 	public function handle() {
+		// Żądanie trafia do admin-ajax.php, gdzie locale ustalany jest na podstawie
+		// profilu zalogowanego użytkownika (kontekst admina). Komunikaty zwracane
+		// klientowi mają być w języku sklepu (frontendu), więc przełączamy locale.
+		switch_to_locale( get_locale() );
+
 		// Weryfikacja nonce.
 		if ( ! check_ajax_referer( IWON_Plugin::AJAX_ACTION, 'nonce', false ) ) {
 			wp_send_json_error(

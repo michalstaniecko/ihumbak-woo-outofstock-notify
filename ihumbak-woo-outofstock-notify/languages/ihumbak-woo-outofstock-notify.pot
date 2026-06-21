@@ -1,0 +1,133 @@
+# Translation template for ihumbak - Woo Out of Stock Notify.
+# Copyright (C) 2026 michalstaniecko
+# This file is distributed under the same license as the ihumbak - Woo Out of Stock Notify package.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: ihumbak - Woo Out of Stock Notify 1.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/michalstaniecko/ihumbak-woo-"
+"outofstock-notify/issues\n"
+"POT-Creation-Date: 2026-06-21 11:51+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: ihumbak-woo-outofstock-notify\n"
+
+#: includes/class-iwon-ajax.php:34
+msgid "Sesja wygasła. Odśwież stronę i spróbuj ponownie."
+msgstr ""
+
+#: includes/class-iwon-ajax.php:59 includes/class-iwon-frontend.php:84
+msgid "Podaj prawidłowy adres e-mail."
+msgstr ""
+
+#: includes/class-iwon-ajax.php:69
+msgid "Nie znaleziono produktu."
+msgstr ""
+
+#: includes/class-iwon-ajax.php:78
+msgid "Nie udało się wysłać wiadomości. Spróbuj ponownie później."
+msgstr ""
+
+#: includes/class-iwon-ajax.php:84 includes/class-iwon-frontend.php:82
+msgid "Dziękujemy! Powiadomimy Cię, kiedy produkt będzie dostępny."
+msgstr ""
+
+#: includes/class-iwon-ajax.php:102
+#, php-format
+msgid "Klient czeka na produkt: %s"
+msgstr ""
+
+#: includes/class-iwon-ajax.php:107
+msgid "Klient jest zainteresowany niedostępnym produktem."
+msgstr ""
+
+#: includes/class-iwon-ajax.php:109
+msgid "Produkt:"
+msgstr ""
+
+#: includes/class-iwon-ajax.php:110
+msgid "Link:"
+msgstr ""
+
+#: includes/class-iwon-ajax.php:111
+msgid "E-mail klienta:"
+msgstr ""
+
+#: includes/class-iwon-frontend.php:81
+msgid "Wysyłanie…"
+msgstr ""
+
+#: includes/class-iwon-frontend.php:83
+msgid "Coś poszło nie tak. Spróbuj ponownie później."
+msgstr ""
+
+#: includes/class-iwon-frontend.php:103
+msgid "Adres e-mail"
+msgstr ""
+
+#: includes/class-iwon-frontend.php:110
+msgid "Twój adres e-mail"
+msgstr ""
+
+#: includes/class-iwon-frontend.php:129
+msgid "Powiadom mnie"
+msgstr ""
+
+#: includes/class-iwon-plugin.php:89
+msgid "Zostaw email i powiadomimy Cię, kiedy produkt będzie dostępny."
+msgstr ""
+
+#: includes/class-iwon-plugin.php:149
+msgid ""
+"Wtyczka „ihumbak - Woo Out of Stock Notify\" wymaga aktywnego WooCommerce."
+msgstr ""
+
+#: includes/class-iwon-settings.php:47 includes/class-iwon-settings.php:48
+msgid "Powiadomienia o dostępności"
+msgstr ""
+
+#: includes/class-iwon-settings.php:63
+msgid "Ustawienia"
+msgstr ""
+
+#: includes/class-iwon-settings.php:94
+msgid "Ustawienia powiadomień"
+msgstr ""
+
+#: includes/class-iwon-settings.php:101
+msgid "Adres e-mail powiadomień"
+msgstr ""
+
+#: includes/class-iwon-settings.php:109
+msgid "Tekst nad formularzem"
+msgstr ""
+
+#: includes/class-iwon-settings.php:135
+msgid "Podany adres e-mail jest nieprawidłowy. Zachowano poprzednią wartość."
+msgstr ""
+
+#: includes/class-iwon-settings.php:149
+msgid ""
+"Skonfiguruj formularz wyświetlany na stronie niedostępnych produktów oraz "
+"adres, na który trafiają powiadomienia."
+msgstr ""
+
+#: includes/class-iwon-settings.php:162
+msgid ""
+"Na ten adres wysyłane będą powiadomienia o zainteresowaniu produktem. "
+"Pozostaw puste, aby użyć adresu administratora sklepu."
+msgstr ""
+
+#: includes/class-iwon-settings.php:175
+msgid "Tekst wyświetlany nad formularzem na stronie produktu."
+msgstr ""
+
+#: includes/class-iwon-updater.php:249
+msgid "Brak informacji o zmianach."
+msgstr ""

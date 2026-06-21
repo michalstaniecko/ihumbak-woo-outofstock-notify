@@ -1,0 +1,139 @@
+# Norwegian Bokmål translation for ihumbak - Woo Out of Stock Notify.
+# Copyright (C) 2026 michalstaniecko
+# This file is distributed under the same license as the ihumbak - Woo Out of Stock Notify package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ihumbak - Woo Out of Stock Notify 1.1.0\n"
+"Report-Msgid-Bugs-To: https://github.com/michalstaniecko/ihumbak-woo-"
+"outofstock-notify/issues\n"
+"POT-Creation-Date: 2026-06-21 11:51+0200\n"
+"PO-Revision-Date: 2026-06-21 12:00+0200\n"
+"Last-Translator: michalstaniecko\n"
+"Language-Team: Norwegian Bokmål\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Domain: ihumbak-woo-outofstock-notify\n"
+
+#: includes/class-iwon-ajax.php:34
+msgid "Sesja wygasła. Odśwież stronę i spróbuj ponownie."
+msgstr "Økten har utløpt. Oppdater siden og prøv igjen."
+
+#: includes/class-iwon-ajax.php:59 includes/class-iwon-frontend.php:84
+msgid "Podaj prawidłowy adres e-mail."
+msgstr "Oppgi en gyldig e-postadresse."
+
+#: includes/class-iwon-ajax.php:69
+msgid "Nie znaleziono produktu."
+msgstr "Fant ikke produktet."
+
+#: includes/class-iwon-ajax.php:78
+msgid "Nie udało się wysłać wiadomości. Spróbuj ponownie później."
+msgstr "Kunne ikke sende meldingen. Prøv igjen senere."
+
+#: includes/class-iwon-ajax.php:84 includes/class-iwon-frontend.php:82
+msgid "Dziękujemy! Powiadomimy Cię, kiedy produkt będzie dostępny."
+msgstr "Takk! Vi gir deg beskjed når produktet er tilgjengelig."
+
+#: includes/class-iwon-ajax.php:102
+#, php-format
+msgid "Klient czeka na produkt: %s"
+msgstr "Kunden venter på produktet: %s"
+
+#: includes/class-iwon-ajax.php:107
+msgid "Klient jest zainteresowany niedostępnym produktem."
+msgstr "Kunden er interessert i et utilgjengelig produkt."
+
+#: includes/class-iwon-ajax.php:109
+msgid "Produkt:"
+msgstr "Produkt:"
+
+#: includes/class-iwon-ajax.php:110
+msgid "Link:"
+msgstr "Lenke:"
+
+#: includes/class-iwon-ajax.php:111
+msgid "E-mail klienta:"
+msgstr "Kundens e-post:"
+
+#: includes/class-iwon-frontend.php:81
+msgid "Wysyłanie…"
+msgstr "Sender …"
+
+#: includes/class-iwon-frontend.php:83
+msgid "Coś poszło nie tak. Spróbuj ponownie później."
+msgstr "Noe gikk galt. Prøv igjen senere."
+
+#: includes/class-iwon-frontend.php:103
+msgid "Adres e-mail"
+msgstr "E-postadresse"
+
+#: includes/class-iwon-frontend.php:110
+msgid "Twój adres e-mail"
+msgstr "Din e-postadresse"
+
+#: includes/class-iwon-frontend.php:129
+msgid "Powiadom mnie"
+msgstr "Varsle meg"
+
+#: includes/class-iwon-plugin.php:89
+msgid "Zostaw email i powiadomimy Cię, kiedy produkt będzie dostępny."
+msgstr "Legg igjen e-posten din, så varsler vi deg når produktet er tilgjengelig."
+
+#: includes/class-iwon-plugin.php:149
+msgid ""
+"Wtyczka „ihumbak - Woo Out of Stock Notify\" wymaga aktywnego WooCommerce."
+msgstr ""
+"Programtillegget «ihumbak - Woo Out of Stock Notify» krever at WooCommerce "
+"er aktivt."
+
+#: includes/class-iwon-settings.php:47 includes/class-iwon-settings.php:48
+msgid "Powiadomienia o dostępności"
+msgstr "Tilgjengelighetsvarsler"
+
+#: includes/class-iwon-settings.php:63
+msgid "Ustawienia"
+msgstr "Innstillinger"
+
+#: includes/class-iwon-settings.php:94
+msgid "Ustawienia powiadomień"
+msgstr "Varselinnstillinger"
+
+#: includes/class-iwon-settings.php:101
+msgid "Adres e-mail powiadomień"
+msgstr "E-postadresse for varsler"
+
+#: includes/class-iwon-settings.php:109
+msgid "Tekst nad formularzem"
+msgstr "Tekst over skjemaet"
+
+#: includes/class-iwon-settings.php:135
+msgid "Podany adres e-mail jest nieprawidłowy. Zachowano poprzednią wartość."
+msgstr "Den oppgitte e-postadressen er ugyldig. Den forrige verdien er beholdt."
+
+#: includes/class-iwon-settings.php:149
+msgid ""
+"Skonfiguruj formularz wyświetlany na stronie niedostępnych produktów oraz "
+"adres, na który trafiają powiadomienia."
+msgstr ""
+"Konfigurer skjemaet som vises på siden for utilgjengelige produkter, og "
+"adressen varslene sendes til."
+
+#: includes/class-iwon-settings.php:162
+msgid ""
+"Na ten adres wysyłane będą powiadomienia o zainteresowaniu produktem. "
+"Pozostaw puste, aby użyć adresu administratora sklepu."
+msgstr ""
+"Varsler om interesse for produktet sendes til denne adressen. La feltet stå "
+"tomt for å bruke butikkadministratorens adresse."
+
+#: includes/class-iwon-settings.php:175
+msgid "Tekst wyświetlany nad formularzem na stronie produktu."
+msgstr "Tekst som vises over skjemaet på produktsiden."
+
+#: includes/class-iwon-updater.php:249
+msgid "Brak informacji o zmianach."
+msgstr "Ingen informasjon om endringer."
