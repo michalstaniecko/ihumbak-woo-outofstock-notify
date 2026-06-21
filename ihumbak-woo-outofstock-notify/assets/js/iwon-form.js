@@ -23,19 +23,6 @@
 	}
 
 	/**
-	 * Sprawdza, czy pole formularza pochodzi z widgetu hCaptcha
-	 * (odpowiedź, id widgetu, nonce, podpis) i powinno trafić do żądania.
-	 */
-	function isHcaptchaField(key) {
-		return (
-			key === 'iwon_notify_nonce' ||
-			key.indexOf('h-captcha') === 0 ||
-			key.indexOf('g-recaptcha') === 0 ||
-			key.indexOf('hcaptcha') === 0
-		);
-	}
-
-	/**
 	 * Resetuje widget hCaptcha po nieudanej próbie, aby umożliwić ponowienie.
 	 */
 	function resetHcaptcha() {
@@ -77,24 +64,22 @@
 			container.classList.add('iwon-notify--loading');
 			setMessage(message, data.i18n.sending, 'loading');
 
-			var body = new URLSearchParams();
-			body.append('action', data.action);
-			body.append('nonce', data.nonce);
-			body.append('email', email);
-			body.append('product_id', productId);
-
-			// Dołącz pola hCaptcha (jeśli widget jest obecny w formularzu).
-			new FormData(form).forEach(function (value, key) {
-				if (isHcaptchaField(key)) {
-					body.append(key, value);
-				}
-			});
+			// Wysyłamy całą zawartość formularza, aby do serwera trafiły wszystkie
+			// pola hCaptcha: token, identyfikator widgetu oraz ukryte pola anti-spam
+			// (honeypot, znacznik czasu, sygnatura). Wybiórcze przekazywanie pól
+			// gubiło część z nich, przez co weryfikacja zwracała „Anti-spam check
+			// failed.". Body typu FormData wymusza multipart – nie ustawiamy
+			// nagłówka Content-Type ręcznie, robi to przeglądarka.
+			var body = new FormData(form);
+			body.set('action', data.action);
+			body.set('nonce', data.nonce);
+			body.set('email', email);
+			body.set('product_id', productId);
 
 			fetch(data.ajaxUrl, {
 				method: 'POST',
 				credentials: 'same-origin',
-				headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-				body: body.toString()
+				body: body
 			})
 				.then(function (response) {
 					return response.json().then(function (json) {
