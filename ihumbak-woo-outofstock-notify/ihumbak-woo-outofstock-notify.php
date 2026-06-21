@@ -3,7 +3,7 @@
  * Plugin Name:       ihumbak - Woo Out of Stock Notify
  * Plugin URI:        https://github.com/michalstaniecko/ihumbak-woo-outofstock-notify
  * Description:       Wyświetla na stronie produktu (niedostępnego / out of stock) prosty formularz, dzięki któremu klient może zostawić swój email. Administrator sklepu otrzymuje powiadomienie e-mail o zainteresowaniu produktem. Nic nie jest zapisywane w bazie danych.
- * Version:           1.0.1
+ * Version:           1.0.2
  * Author:            michalstaniecko
  * Author URI:        https://github.com/michalstaniecko
  * License:           GPL-2.0-or-later
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Bezpośredni dostęp zabroniony.
 }
 
-define( 'IWON_VERSION', '1.0.1' );
+define( 'IWON_VERSION', '1.0.2' );
 define( 'IWON_PLUGIN_FILE', __FILE__ );
 define( 'IWON_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'IWON_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
@@ -45,3 +45,22 @@ function iwon_init() {
 	IWON_Plugin::instance();
 }
 add_action( 'plugins_loaded', 'iwon_init' );
+
+/**
+ * Deklaracja zgodności z funkcjami WooCommerce.
+ *
+ * Wtyczka nie korzysta bezpośrednio z tabel zamówień, więc jest w pełni
+ * zgodna z HPOS (High-Performance Order Storage / custom order tables).
+ */
+add_action(
+	'before_woocommerce_init',
+	function () {
+		if ( class_exists( \Automattic\WooCommerce\Utilities\FeaturesUtil::class ) ) {
+			\Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility(
+				'custom_order_tables',
+				IWON_PLUGIN_FILE,
+				true
+			);
+		}
+	}
+);
