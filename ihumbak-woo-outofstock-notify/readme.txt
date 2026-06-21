@@ -4,7 +4,7 @@ Tags: woocommerce, out of stock, notify, email, stock notification
 Requires at least: 5.8
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,9 @@ Po wysłaniu formularza administrator sklepu otrzymuje wiadomość e-mail z info
 3. Przejdź do **WooCommerce → Powiadomienia o dostępności** i ustaw adres e-mail oraz tekst formularza.
 
 == Changelog ==
+
+= 1.2.3 =
+* Naprawiono brak przełącznika „Włącz automatyczne aktualizacje" na liście wtyczek. Updater rejestruje teraz wtyczkę w transiencie aktualizacji również wtedy, gdy jest aktualna (gałąź no_update), dzięki czemu WordPress pokazuje opcję automatycznych aktualizacji.
 
 = 1.2.2 =
 * Formularz układa się teraz w jednej kolumnie (pole e-mail, hCaptcha, przycisk jeden pod drugim) z użyciem CSS grid, co poprawia wygląd przy aktywnym widgecie hCaptcha.

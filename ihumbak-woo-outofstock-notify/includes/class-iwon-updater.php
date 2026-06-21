@@ -171,24 +171,39 @@ class IWON_Updater {
 		}
 
 		$release = $this->get_remote_release();
-		if ( ! $release || empty( $release['version'] ) || empty( $release['package'] ) ) {
-			return $transient;
-		}
 
-		if ( ! version_compare( IWON_VERSION, $release['version'], '<' ) ) {
-			return $transient;
-		}
-
+		// Bazowy opis zainstalowanej wtyczki. Musi trafić do gałęzi no_update
+		// transienta, gdy nie ma aktualizacji – inaczej WordPress uznaje wtyczkę
+		// za nieobsługującą aktualizacji i nie pokazuje na liście wtyczek
+		// przełącznika automatycznych aktualizacji.
 		$item = array(
 			'id'          => $this->basename,
 			'slug'        => $this->slug,
 			'plugin'      => $this->basename,
-			'new_version' => $release['version'],
-			'url'         => $release['html_url'],
-			'package'     => $release['package'],
+			'new_version' => IWON_VERSION,
+			'url'         => ( $release && ! empty( $release['html_url'] ) ) ? $release['html_url'] : '',
+			'package'     => '',
 		);
 
-		$transient->response[ $this->basename ] = (object) $item;
+		$has_update = $release
+			&& ! empty( $release['version'] )
+			&& ! empty( $release['package'] )
+			&& version_compare( IWON_VERSION, $release['version'], '<' );
+
+		if ( $has_update ) {
+			$item['new_version'] = $release['version'];
+			$item['package']     = $release['package'];
+
+			if ( ! isset( $transient->response ) || ! is_array( $transient->response ) ) {
+				$transient->response = array();
+			}
+			$transient->response[ $this->basename ] = (object) $item;
+		} else {
+			if ( ! isset( $transient->no_update ) || ! is_array( $transient->no_update ) ) {
+				$transient->no_update = array();
+			}
+			$transient->no_update[ $this->basename ] = (object) $item;
+		}
 
 		return $transient;
 	}
