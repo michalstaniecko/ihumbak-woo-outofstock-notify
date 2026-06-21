@@ -110,6 +110,21 @@ class IWON_Frontend {
 					placeholder="<?php esc_attr_e( 'Twój adres e-mail', 'ihumbak-woo-outofstock-notify' ); ?>"
 					required
 				/>
+				<?php if ( class_exists( '\HCaptcha\Helpers\HCaptcha' ) ) : ?>
+					<div class="iwon-notify__captcha">
+						<?php
+						// Widget hCaptcha (plugin „hCaptcha for WP"). Tryb AJAX, bo
+						// formularz wysyłany jest przez fetch, a nie zwykłym POST.
+						\HCaptcha\Helpers\HCaptcha::form_display(
+							array(
+								'action' => IWON_Plugin::AJAX_ACTION,
+								'name'   => IWON_Plugin::HCAPTCHA_NONCE_NAME,
+								'ajax'   => true,
+							)
+						);
+						?>
+					</div>
+				<?php endif; ?>
 				<button type="submit" class="iwon-notify__submit button">
 					<?php esc_html_e( 'Powiadom mnie', 'ihumbak-woo-outofstock-notify' ); ?>
 				</button>

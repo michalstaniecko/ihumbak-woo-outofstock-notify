@@ -36,6 +36,22 @@ class IWON_Ajax {
 			);
 		}
 
+		// Weryfikacja hCaptcha (plugin „hCaptcha for WP"), jeśli jest aktywny.
+		// Gdy plugin jest nieaktywny, formularz działa bez captcha (fallback).
+		if ( class_exists( '\HCaptcha\Helpers\API' ) ) {
+			$hcaptcha_result = \HCaptcha\Helpers\API::verify_post(
+				IWON_Plugin::HCAPTCHA_NONCE_NAME,
+				IWON_Plugin::AJAX_ACTION
+			);
+
+			if ( null !== $hcaptcha_result ) {
+				wp_send_json_error(
+					array( 'message' => $hcaptcha_result ),
+					400
+				);
+			}
+		}
+
 		// Walidacja e-maila.
 		$email = isset( $_POST['email'] ) ? sanitize_email( wp_unslash( $_POST['email'] ) ) : '';
 		if ( '' === $email || ! is_email( $email ) ) {

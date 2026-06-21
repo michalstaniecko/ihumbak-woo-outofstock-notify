@@ -3,7 +3,7 @@
  * Plugin Name:       ihumbak - Woo Out of Stock Notify
  * Plugin URI:        https://github.com/michalstaniecko/ihumbak-woo-outofstock-notify
  * Description:       Wyświetla na stronie produktu (niedostępnego / out of stock) prosty formularz, dzięki któremu klient może zostawić swój email. Administrator sklepu otrzymuje powiadomienie e-mail o zainteresowaniu produktem. Nic nie jest zapisywane w bazie danych.
- * Version:           1.0.2
+ * Version:           1.1.0
  * Author:            michalstaniecko
  * Author URI:        https://github.com/michalstaniecko
  * License:           GPL-2.0-or-later
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Bezpośredni dostęp zabroniony.
 }
 
-define( 'IWON_VERSION', '1.0.2' );
+define( 'IWON_VERSION', '1.1.0' );
 define( 'IWON_PLUGIN_FILE', __FILE__ );
 define( 'IWON_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'IWON_PLUGIN_URL', plugin_dir_url( __FILE__ ) );

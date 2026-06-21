@@ -4,7 +4,7 @@ Tags: woocommerce, out of stock, notify, email, stock notification
 Requires at least: 5.8
 Tested up to: 6.5
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,7 @@ Po wysłaniu formularza administrator sklepu otrzymuje wiadomość e-mail z info
 * Konfigurowalny adres e-mail powiadomień (domyślnie adres administratora).
 * Konfigurowalny tekst wyświetlany nad formularzem.
 * Prosty, neutralny layout dopasowujący się do różnych motywów.
+* Opcjonalna ochrona przed botami przez wtyczkę „hCaptcha for WP" (gdy aktywna).
 
 == Installation ==
 
@@ -33,6 +34,9 @@ Po wysłaniu formularza administrator sklepu otrzymuje wiadomość e-mail z info
 3. Przejdź do **WooCommerce → Powiadomienia o dostępności** i ustaw adres e-mail oraz tekst formularza.
 
 == Changelog ==
+
+= 1.1.0 =
+* Integracja z wtyczką „hCaptcha for WP" – opcjonalna ochrona formularza przed botami. Widget pojawia się i jest weryfikowany tylko, gdy wtyczka hCaptcha jest aktywna; w przeciwnym razie formularz działa bez zmian.
 
 = 1.0.2 =
 * Deklaracja zgodności z WooCommerce HPOS (High-Performance Order Storage) – usuwa komunikat o niezgodności wtyczki.

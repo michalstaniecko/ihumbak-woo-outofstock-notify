@@ -32,6 +32,14 @@ final class IWON_Plugin {
 	const AJAX_ACTION = 'iwon_notify';
 
 	/**
+	 * Nazwa pola nonce dla hCaptcha (plugin „hCaptcha for WP").
+	 *
+	 * Używana zarówno przy renderowaniu widgetu, jak i przy weryfikacji
+	 * po stronie serwera, aby obie strony korzystały z tej samej nazwy.
+	 */
+	const HCAPTCHA_NONCE_NAME = 'iwon_notify_nonce';
+
+	/**
 	 * Pojedyncza instancja.
 	 *
 	 * @var IWON_Plugin|null

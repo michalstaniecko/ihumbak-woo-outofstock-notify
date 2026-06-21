@@ -22,6 +22,33 @@
 		}
 	}
 
+	/**
+	 * Sprawdza, czy pole formularza pochodzi z widgetu hCaptcha
+	 * (odpowiedź, id widgetu, nonce, podpis) i powinno trafić do żądania.
+	 */
+	function isHcaptchaField(key) {
+		return (
+			key === 'iwon_notify_nonce' ||
+			key.indexOf('h-captcha') === 0 ||
+			key.indexOf('g-recaptcha') === 0 ||
+			key.indexOf('hcaptcha') === 0
+		);
+	}
+
+	/**
+	 * Resetuje widget hCaptcha po nieudanej próbie, aby umożliwić ponowienie.
+	 */
+	function resetHcaptcha() {
+		if (typeof window.hcaptcha === 'undefined') {
+			return;
+		}
+		try {
+			window.hcaptcha.reset();
+		} catch (e) {
+			// Brak aktywnego widgetu – ignorujemy.
+		}
+	}
+
 	function initContainer(container) {
 		var form = container.querySelector('.iwon-notify__form');
 		var input = container.querySelector('.iwon-notify__input');
@@ -56,6 +83,13 @@
 			body.append('email', email);
 			body.append('product_id', productId);
 
+			// Dołącz pola hCaptcha (jeśli widget jest obecny w formularzu).
+			new FormData(form).forEach(function (value, key) {
+				if (isHcaptchaField(key)) {
+					body.append(key, value);
+				}
+			});
+
 			fetch(data.ajaxUrl, {
 				method: 'POST',
 				credentials: 'same-origin',
@@ -80,12 +114,14 @@
 						setMessage(message, payload.message || data.i18n.errorGeneric, 'error');
 						button.disabled = false;
 						input.disabled = false;
+						resetHcaptcha();
 					}
 				})
 				.catch(function () {
 					setMessage(message, data.i18n.errorGeneric, 'error');
 					button.disabled = false;
 					input.disabled = false;
+					resetHcaptcha();
 				})
 				.finally(function () {
 					container.classList.remove('iwon-notify--loading');
