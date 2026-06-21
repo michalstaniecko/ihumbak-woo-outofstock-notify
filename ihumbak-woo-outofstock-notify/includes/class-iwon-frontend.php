@@ -113,13 +113,15 @@ class IWON_Frontend {
 				<?php if ( class_exists( '\HCaptcha\Helpers\HCaptcha' ) ) : ?>
 					<div class="iwon-notify__captcha">
 						<?php
-						// Widget hCaptcha (plugin „hCaptcha for WP"). Tryb AJAX, bo
-						// formularz wysyłany jest przez fetch, a nie zwykłym POST.
+						// Widget hCaptcha (plugin „hCaptcha for WP"). Celowo BEZ
+						// trybu 'ajax' => true – ten tryb podpina własny handler submit
+						// hCaptchy, który sam weryfikuje i wyświetla swój komunikat.
+						// Wysyłkę i weryfikację obsługujemy sami (fetch + verify_post),
+						// więc handler hCaptchy dublowałby komunikat.
 						\HCaptcha\Helpers\HCaptcha::form_display(
 							array(
 								'action' => IWON_Plugin::AJAX_ACTION,
 								'name'   => IWON_Plugin::HCAPTCHA_NONCE_NAME,
-								'ajax'   => true,
 							)
 						);
 						?>
